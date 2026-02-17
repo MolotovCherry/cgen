@@ -1,0 +1,19 @@
+[package]
+name = "cgen"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+extra_signature_algos = ["rcgen/aws_lc_rs", "rcgen/aws_lc_rs_unstable"]
+
+# enable prebuilt nasm feature of aws-lc-rs for better building
+[target.'cfg(windows)'.dependencies.aws-lc-rs]
+version = "*"
+features = ["prebuilt-nasm"]
+
+[dependencies]
+rcgen = { version = "0.14.7", features = ["x509-parser"] }
+rustls-pki-types = "1.14.0"
+bon = "3.9.0"
+eyre = "0.6.12"
+time = "0.3.47"
