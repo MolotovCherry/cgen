@@ -1,7 +1,0 @@
-[package]
-name = "cgen-gui"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-cgen = { path = "../cgen", features = ["extra_signature_algos"] }

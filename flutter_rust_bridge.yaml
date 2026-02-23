@@ -1,0 +1,3 @@
+rust_input: crate::api,cgen
+rust_root: rust/rdart/
+dart_output: lib/src/rust

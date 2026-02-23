@@ -1,0 +1,18 @@
+[package]
+name = "rdart"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[features]
+default = []
+
+[dependencies]
+flutter_rust_bridge = "=2.11.1"
+eyre = "0.6.12"
+cgen = { path = "../cgen" }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(frb_expand)'] }
