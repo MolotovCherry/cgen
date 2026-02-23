@@ -1,5 +1,5 @@
 #[allow(non_camel_case_types)]
-#[derive(Copy, Clone, Default, PartialEq)]
+#[derive(Debug, Copy, Clone, Default, PartialEq)]
 pub enum SignatureAlgorithm {
     #[cfg(feature = "extra_signature_algos")]
     RSA_SHA256,

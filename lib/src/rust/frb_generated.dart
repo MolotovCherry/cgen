@@ -14,7 +14,6 @@ import 'third_party/cgen/objects/certified_key.dart';
 import 'third_party/cgen/objects/crl_distribution_point.dart';
 import 'third_party/cgen/objects/custom_extension.dart';
 import 'third_party/cgen/objects/date.dart';
-import 'third_party/cgen/objects/distinguished_name.dart';
 import 'third_party/cgen/objects/dn_type.dart';
 import 'third_party/cgen/objects/extended_key_usage_purpose.dart';
 import 'third_party/cgen/objects/key_id_method.dart';
@@ -78,7 +77,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => 1106547395;
+  int get rustContentHash => 707498801;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -89,147 +88,6 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 }
 
 abstract class RustLibApi extends BaseApi {
-  Uint8List? cgenCertificateCertificateAutoAccessorGetCa({
-    required Certificate that,
-  });
-
-  List<CrlDistributionPoint>
-  cgenCertificateCertificateAutoAccessorGetCrlDistributionPoints({
-    required Certificate that,
-  });
-
-  List<CustomExtension>
-  cgenCertificateCertificateAutoAccessorGetCustomExtensions({
-    required Certificate that,
-  });
-
-  DistinguishedName cgenCertificateCertificateAutoAccessorGetDistinguishedName({
-    required Certificate that,
-  });
-
-  List<ExtendedKeyUsagePurpose>
-  cgenCertificateCertificateAutoAccessorGetExtendedKeyUsages({
-    required Certificate that,
-  });
-
-  KeyIdMethod cgenCertificateCertificateAutoAccessorGetKeyIdentifierMethod({
-    required Certificate that,
-  });
-
-  List<KeyUsagePurpose> cgenCertificateCertificateAutoAccessorGetKeyUsages({
-    required Certificate that,
-  });
-
-  Date cgenCertificateCertificateAutoAccessorGetNotAfter({
-    required Certificate that,
-  });
-
-  Date cgenCertificateCertificateAutoAccessorGetNotBefore({
-    required Certificate that,
-  });
-
-  RsaKeySize? cgenCertificateCertificateAutoAccessorGetRsaKeySize({
-    required Certificate that,
-  });
-
-  SerialNumber? cgenCertificateCertificateAutoAccessorGetSerialNumber({
-    required Certificate that,
-  });
-
-  SignatureAlgorithm cgenCertificateCertificateAutoAccessorGetSignature({
-    required Certificate that,
-  });
-
-  List<String> cgenCertificateCertificateAutoAccessorGetSubjectAltNames({
-    required Certificate that,
-  });
-
-  bool
-  cgenCertificateCertificateAutoAccessorGetUseAuthorityKeyIdentifierExtension({
-    required Certificate that,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetCa({
-    required Certificate that,
-    Uint8List? ca,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetCrlDistributionPoints({
-    required Certificate that,
-    required List<CrlDistributionPoint> crlDistributionPoints,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetCustomExtensions({
-    required Certificate that,
-    required List<CustomExtension> customExtensions,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetDistinguishedName({
-    required Certificate that,
-    required DistinguishedName distinguishedName,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetExtendedKeyUsages({
-    required Certificate that,
-    required List<ExtendedKeyUsagePurpose> extendedKeyUsages,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetKeyIdentifierMethod({
-    required Certificate that,
-    required KeyIdMethod keyIdentifierMethod,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetKeyUsages({
-    required Certificate that,
-    required List<KeyUsagePurpose> keyUsages,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetNotAfter({
-    required Certificate that,
-    required Date notAfter,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetNotBefore({
-    required Certificate that,
-    required Date notBefore,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetRsaKeySize({
-    required Certificate that,
-    RsaKeySize? rsaKeySize,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetSerialNumber({
-    required Certificate that,
-    SerialNumber? serialNumber,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetSignature({
-    required Certificate that,
-    required SignatureAlgorithm signature,
-  });
-
-  void cgenCertificateCertificateAutoAccessorSetSubjectAltNames({
-    required Certificate that,
-    required List<String> subjectAltNames,
-  });
-
-  void
-  cgenCertificateCertificateAutoAccessorSetUseAuthorityKeyIdentifierExtension({
-    required Certificate that,
-    required bool useAuthorityKeyIdentifierExtension,
-  });
-
-  Future<CertificateBuilder> cgenCertificateCertificateBuilder();
-
-  Future<Certificate> cgenCertificateCertificateDefault();
-
-  Future<CertifiedKey> cgenCertificateCertificateGenerate({
-    required Certificate that,
-  });
-
-  Certificate cgenCertificateCertificateNew();
-
   String cgenObjectsCertifiedKeyCertifiedKeyCertPem({
     required CertifiedKey that,
   });
@@ -260,22 +118,6 @@ abstract class RustLibApi extends BaseApi {
     required bool criticality,
   });
 
-  Future<DistinguishedName>
-  cgenObjectsDistinguishedNameDistinguishedNameDefault();
-
-  DistinguishedName cgenObjectsDistinguishedNameDistinguishedNameNew();
-
-  void cgenObjectsDistinguishedNameDistinguishedNamePushStr({
-    required DistinguishedName that,
-    required DnType ty,
-    required String s,
-  });
-
-  bool cgenObjectsDistinguishedNameDistinguishedNameRemove({
-    required DistinguishedName that,
-    required DnType ty,
-  });
-
   SerialNumber cgenObjectsSerialNumberSerialNumberFromOwned({
     required List<int> bytes,
   });
@@ -290,6 +132,16 @@ abstract class RustLibApi extends BaseApi {
     required SerialNumber that,
   });
 
+  Future<CertificateBuilder> cgenCertificateCertificateBuilder();
+
+  Future<Certificate> cgenCertificateCertificateDefault();
+
+  Future<CertifiedKey> cgenCertificateCertificateGenerate({
+    required Certificate that,
+  });
+
+  Certificate cgenCertificateCertificateNew();
+
   Future<Date> cgenObjectsDateDateDefault();
 
   Future<void> crateApiInitInitApp();
@@ -298,14 +150,6 @@ abstract class RustLibApi extends BaseApi {
 
   Future<SignatureAlgorithm>
   cgenObjectsSignatureAlgorithmSignatureAlgorithmDefault();
-
-  RustArcIncrementStrongCountFnType
-  get rust_arc_increment_strong_count_Certificate;
-
-  RustArcDecrementStrongCountFnType
-  get rust_arc_decrement_strong_count_Certificate;
-
-  CrossPlatformFinalizerArg get rust_arc_decrement_strong_count_CertificatePtr;
 
   RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_CertificateBuilder;
@@ -343,15 +187,6 @@ abstract class RustLibApi extends BaseApi {
   get rust_arc_decrement_strong_count_CustomExtensionPtr;
 
   RustArcIncrementStrongCountFnType
-  get rust_arc_increment_strong_count_DistinguishedName;
-
-  RustArcDecrementStrongCountFnType
-  get rust_arc_decrement_strong_count_DistinguishedName;
-
-  CrossPlatformFinalizerArg
-  get rust_arc_decrement_strong_count_DistinguishedNamePtr;
-
-  RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_SerialNumber;
 
   RustArcDecrementStrongCountFnType
@@ -369,1088 +204,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   });
 
   @override
-  Uint8List? cgenCertificateCertificateAutoAccessorGetCa({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 1)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_opt_list_prim_u_8_strict,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorGetCaConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta get kCgenCertificateCertificateAutoAccessorGetCaConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_ca",
-        argNames: ["that"],
-      );
-
-  @override
-  List<CrlDistributionPoint>
-  cgenCertificateCertificateAutoAccessorGetCrlDistributionPoints({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 2)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_list_crl_distribution_point,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetCrlDistributionPointsConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetCrlDistributionPointsConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_crl_distribution_points",
-        argNames: ["that"],
-      );
-
-  @override
-  List<CustomExtension>
-  cgenCertificateCertificateAutoAccessorGetCustomExtensions({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 3)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_list_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetCustomExtensionsConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetCustomExtensionsConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_custom_extensions",
-        argNames: ["that"],
-      );
-
-  @override
-  DistinguishedName cgenCertificateCertificateAutoAccessorGetDistinguishedName({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 4)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetDistinguishedNameConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetDistinguishedNameConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_distinguished_name",
-        argNames: ["that"],
-      );
-
-  @override
-  List<ExtendedKeyUsagePurpose>
-  cgenCertificateCertificateAutoAccessorGetExtendedKeyUsages({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 5)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_list_extended_key_usage_purpose,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetExtendedKeyUsagesConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetExtendedKeyUsagesConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_extended_key_usages",
-        argNames: ["that"],
-      );
-
-  @override
-  KeyIdMethod cgenCertificateCertificateAutoAccessorGetKeyIdentifierMethod({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 6)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_key_id_method,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetKeyIdentifierMethodConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetKeyIdentifierMethodConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_key_identifier_method",
-        argNames: ["that"],
-      );
-
-  @override
-  List<KeyUsagePurpose> cgenCertificateCertificateAutoAccessorGetKeyUsages({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 7)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_list_key_usage_purpose,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorGetKeyUsagesConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetKeyUsagesConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_key_usages",
-        argNames: ["that"],
-      );
-
-  @override
-  Date cgenCertificateCertificateAutoAccessorGetNotAfter({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 8)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_date,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorGetNotAfterConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetNotAfterConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_not_after",
-        argNames: ["that"],
-      );
-
-  @override
-  Date cgenCertificateCertificateAutoAccessorGetNotBefore({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 9)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_date,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorGetNotBeforeConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetNotBeforeConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_not_before",
-        argNames: ["that"],
-      );
-
-  @override
-  RsaKeySize? cgenCertificateCertificateAutoAccessorGetRsaKeySize({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 10)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_opt_box_autoadd_rsa_key_size,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetRsaKeySizeConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetRsaKeySizeConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_rsa_key_size",
-        argNames: ["that"],
-      );
-
-  @override
-  SerialNumber? cgenCertificateCertificateAutoAccessorGetSerialNumber({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 11)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_opt_box_autoadd_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetSerialNumberConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetSerialNumberConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_serial_number",
-        argNames: ["that"],
-      );
-
-  @override
-  SignatureAlgorithm cgenCertificateCertificateAutoAccessorGetSignature({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 12)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_signature_algorithm,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorGetSignatureConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetSignatureConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_signature",
-        argNames: ["that"],
-      );
-
-  @override
-  List<String> cgenCertificateCertificateAutoAccessorGetSubjectAltNames({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 13)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_list_String,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetSubjectAltNamesConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetSubjectAltNamesConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_get_subject_alt_names",
-        argNames: ["that"],
-      );
-
-  @override
-  bool
-  cgenCertificateCertificateAutoAccessorGetUseAuthorityKeyIdentifierExtension({
-    required Certificate that,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 14)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_bool,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorGetUseAuthorityKeyIdentifierExtensionConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorGetUseAuthorityKeyIdentifierExtensionConstMeta =>
-      const TaskConstMeta(
-        debugName:
-            "Certificate_auto_accessor_get_use_authority_key_identifier_extension",
-        argNames: ["that"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetCa({
-    required Certificate that,
-    Uint8List? ca,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_opt_list_prim_u_8_strict(ca, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 15)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorSetCaConstMeta,
-        argValues: [that, ca],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta get kCgenCertificateCertificateAutoAccessorSetCaConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_ca",
-        argNames: ["that", "ca"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetCrlDistributionPoints({
-    required Certificate that,
-    required List<CrlDistributionPoint> crlDistributionPoints,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_list_crl_distribution_point(
-            crlDistributionPoints,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 16)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetCrlDistributionPointsConstMeta,
-        argValues: [that, crlDistributionPoints],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetCrlDistributionPointsConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_crl_distribution_points",
-        argNames: ["that", "crlDistributionPoints"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetCustomExtensions({
-    required Certificate that,
-    required List<CustomExtension> customExtensions,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_list_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
-            customExtensions,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 17)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetCustomExtensionsConstMeta,
-        argValues: [that, customExtensions],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetCustomExtensionsConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_custom_extensions",
-        argNames: ["that", "customExtensions"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetDistinguishedName({
-    required Certificate that,
-    required DistinguishedName distinguishedName,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-            distinguishedName,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 18)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetDistinguishedNameConstMeta,
-        argValues: [that, distinguishedName],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetDistinguishedNameConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_distinguished_name",
-        argNames: ["that", "distinguishedName"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetExtendedKeyUsages({
-    required Certificate that,
-    required List<ExtendedKeyUsagePurpose> extendedKeyUsages,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_list_extended_key_usage_purpose(
-            extendedKeyUsages,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 19)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetExtendedKeyUsagesConstMeta,
-        argValues: [that, extendedKeyUsages],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetExtendedKeyUsagesConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_extended_key_usages",
-        argNames: ["that", "extendedKeyUsages"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetKeyIdentifierMethod({
-    required Certificate that,
-    required KeyIdMethod keyIdentifierMethod,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_key_id_method(keyIdentifierMethod, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 20)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetKeyIdentifierMethodConstMeta,
-        argValues: [that, keyIdentifierMethod],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetKeyIdentifierMethodConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_key_identifier_method",
-        argNames: ["that", "keyIdentifierMethod"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetKeyUsages({
-    required Certificate that,
-    required List<KeyUsagePurpose> keyUsages,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_list_key_usage_purpose(keyUsages, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 21)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorSetKeyUsagesConstMeta,
-        argValues: [that, keyUsages],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetKeyUsagesConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_key_usages",
-        argNames: ["that", "keyUsages"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetNotAfter({
-    required Certificate that,
-    required Date notAfter,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_date(notAfter, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 22)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorSetNotAfterConstMeta,
-        argValues: [that, notAfter],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetNotAfterConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_not_after",
-        argNames: ["that", "notAfter"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetNotBefore({
-    required Certificate that,
-    required Date notBefore,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_date(notBefore, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 23)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorSetNotBeforeConstMeta,
-        argValues: [that, notBefore],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetNotBeforeConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_not_before",
-        argNames: ["that", "notBefore"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetRsaKeySize({
-    required Certificate that,
-    RsaKeySize? rsaKeySize,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_opt_box_autoadd_rsa_key_size(rsaKeySize, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 24)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetRsaKeySizeConstMeta,
-        argValues: [that, rsaKeySize],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetRsaKeySizeConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_rsa_key_size",
-        argNames: ["that", "rsaKeySize"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetSerialNumber({
-    required Certificate that,
-    SerialNumber? serialNumber,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_opt_box_autoadd_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
-            serialNumber,
-            serializer,
-          );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 25)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetSerialNumberConstMeta,
-        argValues: [that, serialNumber],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetSerialNumberConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_serial_number",
-        argNames: ["that", "serialNumber"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetSignature({
-    required Certificate that,
-    required SignatureAlgorithm signature,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_signature_algorithm(signature, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 26)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateAutoAccessorSetSignatureConstMeta,
-        argValues: [that, signature],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetSignatureConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_signature",
-        argNames: ["that", "signature"],
-      );
-
-  @override
-  void cgenCertificateCertificateAutoAccessorSetSubjectAltNames({
-    required Certificate that,
-    required List<String> subjectAltNames,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_list_String(subjectAltNames, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 27)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetSubjectAltNamesConstMeta,
-        argValues: [that, subjectAltNames],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetSubjectAltNamesConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_auto_accessor_set_subject_alt_names",
-        argNames: ["that", "subjectAltNames"],
-      );
-
-  @override
-  void
-  cgenCertificateCertificateAutoAccessorSetUseAuthorityKeyIdentifierExtension({
-    required Certificate that,
-    required bool useAuthorityKeyIdentifierExtension,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          sse_encode_bool(useAuthorityKeyIdentifierExtension, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 28)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenCertificateCertificateAutoAccessorSetUseAuthorityKeyIdentifierExtensionConstMeta,
-        argValues: [that, useAuthorityKeyIdentifierExtension],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenCertificateCertificateAutoAccessorSetUseAuthorityKeyIdentifierExtensionConstMeta =>
-      const TaskConstMeta(
-        debugName:
-            "Certificate_auto_accessor_set_use_authority_key_identifier_extension",
-        argNames: ["that", "useAuthorityKeyIdentifierExtension"],
-      );
-
-  @override
-  Future<CertificateBuilder> cgenCertificateCertificateBuilder() {
-    return handler.executeNormal(
-      NormalTask(
-        callFfi: (port_) {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          pdeCallFfi(
-            generalizedFrbRustBinding,
-            serializer,
-            funcId: 29,
-            port: port_,
-          );
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificateBuilder,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateBuilderConstMeta,
-        argValues: [],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta get kCgenCertificateCertificateBuilderConstMeta =>
-      const TaskConstMeta(debugName: "Certificate_builder", argNames: []);
-
-  @override
-  Future<Certificate> cgenCertificateCertificateDefault() {
-    return handler.executeNormal(
-      NormalTask(
-        callFfi: (port_) {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          pdeCallFfi(
-            generalizedFrbRustBinding,
-            serializer,
-            funcId: 30,
-            port: port_,
-          );
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateDefaultConstMeta,
-        argValues: [],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta get kCgenCertificateCertificateDefaultConstMeta =>
-      const TaskConstMeta(debugName: "Certificate_default", argNames: []);
-
-  @override
-  Future<CertifiedKey> cgenCertificateCertificateGenerate({
-    required Certificate that,
-  }) {
-    return handler.executeNormal(
-      NormalTask(
-        callFfi: (port_) {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-            that,
-            serializer,
-          );
-          pdeCallFfi(
-            generalizedFrbRustBinding,
-            serializer,
-            funcId: 31,
-            port: port_,
-          );
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertifiedKey,
-          decodeErrorData:
-              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificateErr,
-        ),
-        constMeta: kCgenCertificateCertificateGenerateConstMeta,
-        argValues: [that],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta get kCgenCertificateCertificateGenerateConstMeta =>
-      const TaskConstMeta(
-        debugName: "Certificate_generate",
-        argNames: ["that"],
-      );
-
-  @override
-  Certificate cgenCertificateCertificateNew() {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 32)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenCertificateCertificateNewConstMeta,
-        argValues: [],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta get kCgenCertificateCertificateNewConstMeta =>
-      const TaskConstMeta(debugName: "Certificate_new", argNames: []);
-
-  @override
   String cgenObjectsCertifiedKeyCertifiedKeyCertPem({
     required CertifiedKey that,
   }) {
@@ -1462,7 +215,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 33)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 1)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_String,
@@ -1493,7 +246,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 34)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 2)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_String,
@@ -1525,7 +278,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 35)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 3)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_unit,
@@ -1557,7 +310,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 36)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 4)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_bool,
@@ -1589,7 +342,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_list_prim_u_64_strict(oid, serializer);
           sse_encode_list_prim_u_8_loose(content, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 37)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 5)!;
         },
         codec: SseCodec(
           decodeSuccessData:
@@ -1620,7 +373,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         callFfi: () {
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_list_prim_u_8_loose(shaDigest, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 38)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 6)!;
         },
         codec: SseCodec(
           decodeSuccessData:
@@ -1656,7 +409,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             serializer,
           );
           sse_encode_bool(criticality, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 39)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 7)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_unit,
@@ -1678,133 +431,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
-  Future<DistinguishedName>
-  cgenObjectsDistinguishedNameDistinguishedNameDefault() {
-    return handler.executeNormal(
-      NormalTask(
-        callFfi: (port_) {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          pdeCallFfi(
-            generalizedFrbRustBinding,
-            serializer,
-            funcId: 40,
-            port: port_,
-          );
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenObjectsDistinguishedNameDistinguishedNameDefaultConstMeta,
-        argValues: [],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenObjectsDistinguishedNameDistinguishedNameDefaultConstMeta =>
-      const TaskConstMeta(debugName: "DistinguishedName_default", argNames: []);
-
-  @override
-  DistinguishedName cgenObjectsDistinguishedNameDistinguishedNameNew() {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 41)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData:
-              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName,
-          decodeErrorData: null,
-        ),
-        constMeta: kCgenObjectsDistinguishedNameDistinguishedNameNewConstMeta,
-        argValues: [],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenObjectsDistinguishedNameDistinguishedNameNewConstMeta =>
-      const TaskConstMeta(debugName: "DistinguishedName_new", argNames: []);
-
-  @override
-  void cgenObjectsDistinguishedNameDistinguishedNamePushStr({
-    required DistinguishedName that,
-    required DnType ty,
-    required String s,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-            that,
-            serializer,
-          );
-          sse_encode_box_autoadd_dn_type(ty, serializer);
-          sse_encode_String(s, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 42)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_unit,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenObjectsDistinguishedNameDistinguishedNamePushStrConstMeta,
-        argValues: [that, ty, s],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenObjectsDistinguishedNameDistinguishedNamePushStrConstMeta =>
-      const TaskConstMeta(
-        debugName: "DistinguishedName_push_str",
-        argNames: ["that", "ty", "s"],
-      );
-
-  @override
-  bool cgenObjectsDistinguishedNameDistinguishedNameRemove({
-    required DistinguishedName that,
-    required DnType ty,
-  }) {
-    return handler.executeSync(
-      SyncTask(
-        callFfi: () {
-          final serializer = SseSerializer(generalizedFrbRustBinding);
-          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-            that,
-            serializer,
-          );
-          sse_encode_box_autoadd_dn_type(ty, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 43)!;
-        },
-        codec: SseCodec(
-          decodeSuccessData: sse_decode_bool,
-          decodeErrorData: null,
-        ),
-        constMeta:
-            kCgenObjectsDistinguishedNameDistinguishedNameRemoveConstMeta,
-        argValues: [that, ty],
-        apiImpl: this,
-      ),
-    );
-  }
-
-  TaskConstMeta
-  get kCgenObjectsDistinguishedNameDistinguishedNameRemoveConstMeta =>
-      const TaskConstMeta(
-        debugName: "DistinguishedName_remove",
-        argNames: ["that", "ty"],
-      );
-
-  @override
   SerialNumber cgenObjectsSerialNumberSerialNumberFromOwned({
     required List<int> bytes,
   }) {
@@ -1813,7 +439,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         callFfi: () {
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_list_prim_u_8_loose(bytes, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 44)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 8)!;
         },
         codec: SseCodec(
           decodeSuccessData:
@@ -1842,7 +468,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         callFfi: () {
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_u_64(num, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 45)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 9)!;
         },
         codec: SseCodec(
           decodeSuccessData:
@@ -1872,7 +498,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 46)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 10)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_usize,
@@ -1900,7 +526,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 47)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 11)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_list_prim_u_8_strict,
@@ -1920,6 +546,118 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<CertificateBuilder> cgenCertificateCertificateBuilder() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 12,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData:
+              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificateBuilder,
+          decodeErrorData: null,
+        ),
+        constMeta: kCgenCertificateCertificateBuilderConstMeta,
+        argValues: [],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCgenCertificateCertificateBuilderConstMeta =>
+      const TaskConstMeta(debugName: "certificate_builder", argNames: []);
+
+  @override
+  Future<Certificate> cgenCertificateCertificateDefault() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 13,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_certificate,
+          decodeErrorData: null,
+        ),
+        constMeta: kCgenCertificateCertificateDefaultConstMeta,
+        argValues: [],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCgenCertificateCertificateDefaultConstMeta =>
+      const TaskConstMeta(debugName: "certificate_default", argNames: []);
+
+  @override
+  Future<CertifiedKey> cgenCertificateCertificateGenerate({
+    required Certificate that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_box_autoadd_certificate(that, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 14,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData:
+              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertifiedKey,
+          decodeErrorData:
+              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificateErr,
+        ),
+        constMeta: kCgenCertificateCertificateGenerateConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCgenCertificateCertificateGenerateConstMeta =>
+      const TaskConstMeta(
+        debugName: "certificate_generate",
+        argNames: ["that"],
+      );
+
+  @override
+  Certificate cgenCertificateCertificateNew() {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 15)!;
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_certificate,
+          decodeErrorData: null,
+        ),
+        constMeta: kCgenCertificateCertificateNewConstMeta,
+        argValues: [],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCgenCertificateCertificateNewConstMeta =>
+      const TaskConstMeta(debugName: "certificate_new", argNames: []);
+
+  @override
   Future<Date> cgenObjectsDateDateDefault() {
     return handler.executeNormal(
       NormalTask(
@@ -1928,7 +666,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 48,
+            funcId: 16,
             port: port_,
           );
         },
@@ -1955,7 +693,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 49,
+            funcId: 17,
             port: port_,
           );
         },
@@ -1982,7 +720,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 50,
+            funcId: 18,
             port: port_,
           );
         },
@@ -2010,7 +748,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 51,
+            funcId: 19,
             port: port_,
           );
         },
@@ -2032,14 +770,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         debugName: "signature_algorithm_default",
         argNames: [],
       );
-
-  RustArcIncrementStrongCountFnType
-  get rust_arc_increment_strong_count_Certificate => wire
-      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate;
-
-  RustArcDecrementStrongCountFnType
-  get rust_arc_decrement_strong_count_Certificate => wire
-      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate;
 
   RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_CertificateBuilder => wire
@@ -2074,29 +804,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension;
 
   RustArcIncrementStrongCountFnType
-  get rust_arc_increment_strong_count_DistinguishedName => wire
-      .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName;
-
-  RustArcDecrementStrongCountFnType
-  get rust_arc_decrement_strong_count_DistinguishedName => wire
-      .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName;
-
-  RustArcIncrementStrongCountFnType
   get rust_arc_increment_strong_count_SerialNumber => wire
       .rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber;
 
   RustArcDecrementStrongCountFnType
   get rust_arc_decrement_strong_count_SerialNumber => wire
       .rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber;
-
-  @protected
-  Certificate
-  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    dynamic raw,
-  ) {
-    // Codec=Dco (DartCObject based), see doc to use other codecs
-    return CertificateImpl.frbInternalDcoDecode(raw as List<dynamic>);
-  }
 
   @protected
   CertificateBuilder
@@ -2135,15 +848,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  DistinguishedName
-  dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    dynamic raw,
-  ) {
-    // Codec=Dco (DartCObject based), see doc to use other codecs
-    return DistinguishedNameImpl.frbInternalDcoDecode(raw as List<dynamic>);
-  }
-
-  @protected
   SerialNumber
   dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
     dynamic raw,
@@ -2153,39 +857,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  Certificate
-  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    dynamic raw,
-  ) {
-    // Codec=Dco (DartCObject based), see doc to use other codecs
-    return CertificateImpl.frbInternalDcoDecode(raw as List<dynamic>);
-  }
-
-  @protected
   CustomExtension
   dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
     dynamic raw,
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return CustomExtensionImpl.frbInternalDcoDecode(raw as List<dynamic>);
-  }
-
-  @protected
-  DistinguishedName
-  dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    dynamic raw,
-  ) {
-    // Codec=Dco (DartCObject based), see doc to use other codecs
-    return DistinguishedNameImpl.frbInternalDcoDecode(raw as List<dynamic>);
-  }
-
-  @protected
-  Certificate
-  dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    dynamic raw,
-  ) {
-    // Codec=Dco (DartCObject based), see doc to use other codecs
-    return CertificateImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
@@ -2213,15 +890,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return SerialNumberImpl.frbInternalDcoDecode(raw as List<dynamic>);
-  }
-
-  @protected
-  Certificate
-  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    dynamic raw,
-  ) {
-    // Codec=Dco (DartCObject based), see doc to use other codecs
-    return CertificateImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
@@ -2258,15 +926,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   ) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return CustomExtensionImpl.frbInternalDcoDecode(raw as List<dynamic>);
-  }
-
-  @protected
-  DistinguishedName
-  dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    dynamic raw,
-  ) {
-    // Codec=Dco (DartCObject based), see doc to use other codecs
-    return DistinguishedNameImpl.frbInternalDcoDecode(raw as List<dynamic>);
   }
 
   @protected
@@ -2313,15 +972,45 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  DnType dco_decode_box_autoadd_dn_type(dynamic raw) {
+  Certificate dco_decode_box_autoadd_certificate(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
-    return dco_decode_dn_type(raw);
+    return dco_decode_certificate(raw);
   }
 
   @protected
   RsaKeySize dco_decode_box_autoadd_rsa_key_size(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_rsa_key_size(raw);
+  }
+
+  @protected
+  Certificate dco_decode_certificate(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 14)
+      throw Exception('unexpected arr length: expect 14 but see ${arr.length}');
+    return Certificate.raw(
+      ca: dco_decode_opt_list_prim_u_8_strict(arr[0]),
+      signature: dco_decode_signature_algorithm(arr[1]),
+      notBefore: dco_decode_date(arr[2]),
+      notAfter: dco_decode_date(arr[3]),
+      subjectAltNames: dco_decode_list_String(arr[4]),
+      serialNumber:
+          dco_decode_opt_box_autoadd_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
+            arr[5],
+          ),
+      distinguishedName: dco_decode_list_record_dn_type_string(arr[6]),
+      keyUsages: dco_decode_list_key_usage_purpose(arr[7]),
+      extendedKeyUsages: dco_decode_list_extended_key_usage_purpose(arr[8]),
+      crlDistributionPoints: dco_decode_list_crl_distribution_point(arr[9]),
+      customExtensions:
+          dco_decode_list_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
+            arr[10],
+          ),
+      useAuthorityKeyIdentifierExtension: dco_decode_bool(arr[11]),
+      keyIdentifierMethod: dco_decode_key_id_method(arr[12]),
+      rsaKeySize: dco_decode_opt_box_autoadd_rsa_key_size(arr[13]),
+    );
   }
 
   @protected
@@ -2491,6 +1180,14 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  List<(DnType, String)> dco_decode_list_record_dn_type_string(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>)
+        .map(dco_decode_record_dn_type_string)
+        .toList();
+  }
+
+  @protected
   CustomExtension?
   dco_decode_opt_box_autoadd_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
     dynamic raw,
@@ -2529,6 +1226,16 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  (DnType, String) dco_decode_record_dn_type_string(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2) {
+      throw Exception('Expected 2 elements, got ${arr.length}');
+    }
+    return (dco_decode_dn_type(arr[0]), dco_decode_String(arr[1]));
+  }
+
+  @protected
   RsaKeySize dco_decode_rsa_key_size(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return RsaKeySize.values[raw as int];
@@ -2562,18 +1269,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   BigInt dco_decode_usize(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dcoDecodeU64(raw);
-  }
-
-  @protected
-  Certificate
-  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    SseDeserializer deserializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return CertificateImpl.frbInternalSseDecode(
-      sse_decode_usize(deserializer),
-      sse_decode_i_32(deserializer),
-    );
   }
 
   @protected
@@ -2625,18 +1320,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  DistinguishedName
-  sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    SseDeserializer deserializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return DistinguishedNameImpl.frbInternalSseDecode(
-      sse_decode_usize(deserializer),
-      sse_decode_i_32(deserializer),
-    );
-  }
-
-  @protected
   SerialNumber
   sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
     SseDeserializer deserializer,
@@ -2649,48 +1332,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  Certificate
-  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    SseDeserializer deserializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return CertificateImpl.frbInternalSseDecode(
-      sse_decode_usize(deserializer),
-      sse_decode_i_32(deserializer),
-    );
-  }
-
-  @protected
   CustomExtension
   sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
     SseDeserializer deserializer,
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return CustomExtensionImpl.frbInternalSseDecode(
-      sse_decode_usize(deserializer),
-      sse_decode_i_32(deserializer),
-    );
-  }
-
-  @protected
-  DistinguishedName
-  sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    SseDeserializer deserializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return DistinguishedNameImpl.frbInternalSseDecode(
-      sse_decode_usize(deserializer),
-      sse_decode_i_32(deserializer),
-    );
-  }
-
-  @protected
-  Certificate
-  sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    SseDeserializer deserializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return CertificateImpl.frbInternalSseDecode(
       sse_decode_usize(deserializer),
       sse_decode_i_32(deserializer),
     );
@@ -2727,18 +1374,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return SerialNumberImpl.frbInternalSseDecode(
-      sse_decode_usize(deserializer),
-      sse_decode_i_32(deserializer),
-    );
-  }
-
-  @protected
-  Certificate
-  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    SseDeserializer deserializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return CertificateImpl.frbInternalSseDecode(
       sse_decode_usize(deserializer),
       sse_decode_i_32(deserializer),
     );
@@ -2793,18 +1428,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  DistinguishedName
-  sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    SseDeserializer deserializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    return DistinguishedNameImpl.frbInternalSseDecode(
-      sse_decode_usize(deserializer),
-      sse_decode_i_32(deserializer),
-    );
-  }
-
-  @protected
   SerialNumber
   sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
     SseDeserializer deserializer,
@@ -2852,15 +1475,63 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  DnType sse_decode_box_autoadd_dn_type(SseDeserializer deserializer) {
+  Certificate sse_decode_box_autoadd_certificate(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    return (sse_decode_dn_type(deserializer));
+    return (sse_decode_certificate(deserializer));
   }
 
   @protected
   RsaKeySize sse_decode_box_autoadd_rsa_key_size(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_rsa_key_size(deserializer));
+  }
+
+  @protected
+  Certificate sse_decode_certificate(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_ca = sse_decode_opt_list_prim_u_8_strict(deserializer);
+    var var_signature = sse_decode_signature_algorithm(deserializer);
+    var var_notBefore = sse_decode_date(deserializer);
+    var var_notAfter = sse_decode_date(deserializer);
+    var var_subjectAltNames = sse_decode_list_String(deserializer);
+    var var_serialNumber =
+        sse_decode_opt_box_autoadd_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
+          deserializer,
+        );
+    var var_distinguishedName = sse_decode_list_record_dn_type_string(
+      deserializer,
+    );
+    var var_keyUsages = sse_decode_list_key_usage_purpose(deserializer);
+    var var_extendedKeyUsages = sse_decode_list_extended_key_usage_purpose(
+      deserializer,
+    );
+    var var_crlDistributionPoints = sse_decode_list_crl_distribution_point(
+      deserializer,
+    );
+    var var_customExtensions =
+        sse_decode_list_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
+          deserializer,
+        );
+    var var_useAuthorityKeyIdentifierExtension = sse_decode_bool(deserializer);
+    var var_keyIdentifierMethod = sse_decode_key_id_method(deserializer);
+    var var_rsaKeySize = sse_decode_opt_box_autoadd_rsa_key_size(deserializer);
+    return Certificate.raw(
+      ca: var_ca,
+      signature: var_signature,
+      notBefore: var_notBefore,
+      notAfter: var_notAfter,
+      subjectAltNames: var_subjectAltNames,
+      serialNumber: var_serialNumber,
+      distinguishedName: var_distinguishedName,
+      keyUsages: var_keyUsages,
+      extendedKeyUsages: var_extendedKeyUsages,
+      crlDistributionPoints: var_crlDistributionPoints,
+      customExtensions: var_customExtensions,
+      useAuthorityKeyIdentifierExtension:
+          var_useAuthorityKeyIdentifierExtension,
+      keyIdentifierMethod: var_keyIdentifierMethod,
+      rsaKeySize: var_rsaKeySize,
+    );
   }
 
   @protected
@@ -3065,6 +1736,20 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  List<(DnType, String)> sse_decode_list_record_dn_type_string(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <(DnType, String)>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_record_dn_type_string(deserializer));
+    }
+    return ans_;
+  }
+
+  @protected
   CustomExtension?
   sse_decode_opt_box_autoadd_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
     SseDeserializer deserializer,
@@ -3121,6 +1806,16 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  (DnType, String) sse_decode_record_dn_type_string(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_field0 = sse_decode_dn_type(deserializer);
+    var var_field1 = sse_decode_String(deserializer);
+    return (var_field0, var_field1);
+  }
+
+  @protected
   RsaKeySize sse_decode_rsa_key_size(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var inner = sse_decode_i_32(deserializer);
@@ -3157,19 +1852,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   BigInt sse_decode_usize(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return deserializer.buffer.getBigUint64();
-  }
-
-  @protected
-  void
-  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    Certificate self,
-    SseSerializer serializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_usize(
-      (self as CertificateImpl).frbInternalSseEncode(move: true),
-      serializer,
-    );
   }
 
   @protected
@@ -3226,19 +1908,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void
-  sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    DistinguishedName self,
-    SseSerializer serializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_usize(
-      (self as DistinguishedNameImpl).frbInternalSseEncode(move: true),
-      serializer,
-    );
-  }
-
-  @protected
-  void
   sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
     SerialNumber self,
     SseSerializer serializer,
@@ -3252,19 +1921,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void
-  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    Certificate self,
-    SseSerializer serializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_usize(
-      (self as CertificateImpl).frbInternalSseEncode(move: false),
-      serializer,
-    );
-  }
-
-  @protected
-  void
   sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
     CustomExtension self,
     SseSerializer serializer,
@@ -3272,32 +1928,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
       (self as CustomExtensionImpl).frbInternalSseEncode(move: false),
-      serializer,
-    );
-  }
-
-  @protected
-  void
-  sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    DistinguishedName self,
-    SseSerializer serializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_usize(
-      (self as DistinguishedNameImpl).frbInternalSseEncode(move: false),
-      serializer,
-    );
-  }
-
-  @protected
-  void
-  sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    Certificate self,
-    SseSerializer serializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_usize(
-      (self as CertificateImpl).frbInternalSseEncode(move: false),
       serializer,
     );
   }
@@ -3337,19 +1967,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_usize(
       (self as SerialNumberImpl).frbInternalSseEncode(move: false),
-      serializer,
-    );
-  }
-
-  @protected
-  void
-  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCertificate(
-    Certificate self,
-    SseSerializer serializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_usize(
-      (self as CertificateImpl).frbInternalSseEncode(move: null),
       serializer,
     );
   }
@@ -3408,19 +2025,6 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   @protected
   void
-  sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
-    DistinguishedName self,
-    SseSerializer serializer,
-  ) {
-    // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_usize(
-      (self as DistinguishedNameImpl).frbInternalSseEncode(move: null),
-      serializer,
-    );
-  }
-
-  @protected
-  void
   sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
     SerialNumber self,
     SseSerializer serializer,
@@ -3471,9 +2075,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
-  void sse_encode_box_autoadd_dn_type(DnType self, SseSerializer serializer) {
+  void sse_encode_box_autoadd_certificate(
+    Certificate self,
+    SseSerializer serializer,
+  ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
-    sse_encode_dn_type(self, serializer);
+    sse_encode_certificate(self, serializer);
   }
 
   @protected
@@ -3483,6 +2090,37 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_rsa_key_size(self, serializer);
+  }
+
+  @protected
+  void sse_encode_certificate(Certificate self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_opt_list_prim_u_8_strict(self.ca, serializer);
+    sse_encode_signature_algorithm(self.signature, serializer);
+    sse_encode_date(self.notBefore, serializer);
+    sse_encode_date(self.notAfter, serializer);
+    sse_encode_list_String(self.subjectAltNames, serializer);
+    sse_encode_opt_box_autoadd_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber(
+      self.serialNumber,
+      serializer,
+    );
+    sse_encode_list_record_dn_type_string(self.distinguishedName, serializer);
+    sse_encode_list_key_usage_purpose(self.keyUsages, serializer);
+    sse_encode_list_extended_key_usage_purpose(
+      self.extendedKeyUsages,
+      serializer,
+    );
+    sse_encode_list_crl_distribution_point(
+      self.crlDistributionPoints,
+      serializer,
+    );
+    sse_encode_list_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
+      self.customExtensions,
+      serializer,
+    );
+    sse_encode_bool(self.useAuthorityKeyIdentifierExtension, serializer);
+    sse_encode_key_id_method(self.keyIdentifierMethod, serializer);
+    sse_encode_opt_box_autoadd_rsa_key_size(self.rsaKeySize, serializer);
   }
 
   @protected
@@ -3676,6 +2314,18 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_list_record_dn_type_string(
+    List<(DnType, String)> self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_record_dn_type_string(item, serializer);
+    }
+  }
+
+  @protected
   void
   sse_encode_opt_box_autoadd_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCustomExtension(
     CustomExtension? self,
@@ -3733,6 +2383,16 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     if (self != null) {
       sse_encode_list_prim_u_8_strict(self, serializer);
     }
+  }
+
+  @protected
+  void sse_encode_record_dn_type_string(
+    (DnType, String) self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_dn_type(self.$1, serializer);
+    sse_encode_String(self.$2, serializer);
   }
 
   @protected
@@ -3819,166 +2479,6 @@ class CertificateErrImpl extends RustOpaque implements CertificateErr {
 }
 
 @sealed
-class CertificateImpl extends RustOpaque implements Certificate {
-  // Not to be used by end users
-  CertificateImpl.frbInternalDcoDecode(List<dynamic> wire)
-    : super.frbInternalDcoDecode(wire, _kStaticData);
-
-  // Not to be used by end users
-  CertificateImpl.frbInternalSseDecode(BigInt ptr, int externalSizeOnNative)
-    : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
-
-  static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount:
-        RustLib.instance.api.rust_arc_increment_strong_count_Certificate,
-    rustArcDecrementStrongCount:
-        RustLib.instance.api.rust_arc_decrement_strong_count_Certificate,
-    rustArcDecrementStrongCountPtr:
-        RustLib.instance.api.rust_arc_decrement_strong_count_CertificatePtr,
-  );
-
-  Uint8List? get ca => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetCa(that: this);
-
-  List<CrlDistributionPoint> get crlDistributionPoints => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetCrlDistributionPoints(
-        that: this,
-      );
-
-  List<CustomExtension> get customExtensions => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetCustomExtensions(that: this);
-
-  DistinguishedName get distinguishedName => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetDistinguishedName(that: this);
-
-  List<ExtendedKeyUsagePurpose> get extendedKeyUsages => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetExtendedKeyUsages(that: this);
-
-  KeyIdMethod get keyIdentifierMethod => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetKeyIdentifierMethod(that: this);
-
-  List<KeyUsagePurpose> get keyUsages => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetKeyUsages(that: this);
-
-  Date get notAfter => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetNotAfter(that: this);
-
-  Date get notBefore => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetNotBefore(that: this);
-
-  RsaKeySize? get rsaKeySize => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetRsaKeySize(that: this);
-
-  SerialNumber? get serialNumber => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetSerialNumber(that: this);
-
-  SignatureAlgorithm get signature => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetSignature(that: this);
-
-  List<String> get subjectAltNames => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetSubjectAltNames(that: this);
-
-  bool get useAuthorityKeyIdentifierExtension => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorGetUseAuthorityKeyIdentifierExtension(
-        that: this,
-      );
-
-  set ca(Uint8List? ca) => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorSetCa(that: this, ca: ca);
-
-  set crlDistributionPoints(List<CrlDistributionPoint> crlDistributionPoints) =>
-      RustLib.instance.api
-          .cgenCertificateCertificateAutoAccessorSetCrlDistributionPoints(
-            that: this,
-            crlDistributionPoints: crlDistributionPoints,
-          );
-
-  set customExtensions(List<CustomExtension> customExtensions) => RustLib
-      .instance
-      .api
-      .cgenCertificateCertificateAutoAccessorSetCustomExtensions(
-        that: this,
-        customExtensions: customExtensions,
-      );
-
-  set distinguishedName(DistinguishedName distinguishedName) => RustLib
-      .instance
-      .api
-      .cgenCertificateCertificateAutoAccessorSetDistinguishedName(
-        that: this,
-        distinguishedName: distinguishedName,
-      );
-
-  set extendedKeyUsages(List<ExtendedKeyUsagePurpose> extendedKeyUsages) =>
-      RustLib.instance.api
-          .cgenCertificateCertificateAutoAccessorSetExtendedKeyUsages(
-            that: this,
-            extendedKeyUsages: extendedKeyUsages,
-          );
-
-  set keyIdentifierMethod(KeyIdMethod keyIdentifierMethod) => RustLib
-      .instance
-      .api
-      .cgenCertificateCertificateAutoAccessorSetKeyIdentifierMethod(
-        that: this,
-        keyIdentifierMethod: keyIdentifierMethod,
-      );
-
-  set keyUsages(List<KeyUsagePurpose> keyUsages) =>
-      RustLib.instance.api.cgenCertificateCertificateAutoAccessorSetKeyUsages(
-        that: this,
-        keyUsages: keyUsages,
-      );
-
-  set notAfter(Date notAfter) =>
-      RustLib.instance.api.cgenCertificateCertificateAutoAccessorSetNotAfter(
-        that: this,
-        notAfter: notAfter,
-      );
-
-  set notBefore(Date notBefore) =>
-      RustLib.instance.api.cgenCertificateCertificateAutoAccessorSetNotBefore(
-        that: this,
-        notBefore: notBefore,
-      );
-
-  set rsaKeySize(RsaKeySize? rsaKeySize) =>
-      RustLib.instance.api.cgenCertificateCertificateAutoAccessorSetRsaKeySize(
-        that: this,
-        rsaKeySize: rsaKeySize,
-      );
-
-  set serialNumber(SerialNumber? serialNumber) => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorSetSerialNumber(
-        that: this,
-        serialNumber: serialNumber,
-      );
-
-  set signature(SignatureAlgorithm signature) =>
-      RustLib.instance.api.cgenCertificateCertificateAutoAccessorSetSignature(
-        that: this,
-        signature: signature,
-      );
-
-  set subjectAltNames(List<String> subjectAltNames) => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorSetSubjectAltNames(
-        that: this,
-        subjectAltNames: subjectAltNames,
-      );
-
-  set useAuthorityKeyIdentifierExtension(
-    bool useAuthorityKeyIdentifierExtension,
-  ) => RustLib.instance.api
-      .cgenCertificateCertificateAutoAccessorSetUseAuthorityKeyIdentifierExtension(
-        that: this,
-        useAuthorityKeyIdentifierExtension: useAuthorityKeyIdentifierExtension,
-      );
-
-  Future<CertifiedKey> generate() =>
-      RustLib.instance.api.cgenCertificateCertificateGenerate(that: this);
-}
-
-@sealed
 class CertifiedKeyImpl extends RustOpaque implements CertifiedKey {
   // Not to be used by end users
   CertifiedKeyImpl.frbInternalDcoDecode(List<dynamic> wire)
@@ -4042,57 +2542,6 @@ class CustomExtensionImpl extends RustOpaque implements CustomExtension {
         that: this,
         criticality: criticality,
       );
-}
-
-@sealed
-class DistinguishedNameImpl extends RustOpaque implements DistinguishedName {
-  // Not to be used by end users
-  DistinguishedNameImpl.frbInternalDcoDecode(List<dynamic> wire)
-    : super.frbInternalDcoDecode(wire, _kStaticData);
-
-  // Not to be used by end users
-  DistinguishedNameImpl.frbInternalSseDecode(
-    BigInt ptr,
-    int externalSizeOnNative,
-  ) : super.frbInternalSseDecode(ptr, externalSizeOnNative, _kStaticData);
-
-  static final _kStaticData = RustArcStaticData(
-    rustArcIncrementStrongCount:
-        RustLib.instance.api.rust_arc_increment_strong_count_DistinguishedName,
-    rustArcDecrementStrongCount:
-        RustLib.instance.api.rust_arc_decrement_strong_count_DistinguishedName,
-    rustArcDecrementStrongCountPtr: RustLib
-        .instance
-        .api
-        .rust_arc_decrement_strong_count_DistinguishedNamePtr,
-  );
-
-  /// Inserts or updates an attribute that consists of type and name
-  ///
-  /// ```
-  /// # use rcgen::{DistinguishedName, DnType, DnValue};
-  /// let mut dn = DistinguishedName::new();
-  /// dn.push(DnType::OrganizationName, "Crab widgits SE");
-  /// dn.push(DnType::CommonName, DnValue::PrintableString("Master Cert".try_into().unwrap()));
-  /// assert_eq!(dn.get(&DnType::OrganizationName), Some(&DnValue::Utf8String("Crab widgits SE".to_string())));
-  /// assert_eq!(dn.get(&DnType::CommonName), Some(&DnValue::PrintableString("Master Cert".try_into().unwrap())));
-  /// ```
-  /// flutter_rust_bridge:sync
-  void pushStr({required DnType ty, required String s}) =>
-      RustLib.instance.api.cgenObjectsDistinguishedNameDistinguishedNamePushStr(
-        that: this,
-        ty: ty,
-        s: s,
-      );
-
-  /// Removes the attribute with the specified DnType
-  ///
-  /// Returns true when an actual removal happened, false
-  /// when no attribute with the specified DnType was
-  /// found.
-  /// flutter_rust_bridge:sync
-  bool remove({required DnType ty}) => RustLib.instance.api
-      .cgenObjectsDistinguishedNameDistinguishedNameRemove(that: this, ty: ty);
 }
 
 @sealed

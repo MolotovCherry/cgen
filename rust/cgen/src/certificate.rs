@@ -1,13 +1,11 @@
 use bon::Builder;
-use rcgen::DnValue;
 
 use crate::objects::{
-    CertifiedKey, CrlDistributionPoint, CustomExtension, Date, DistinguishedName, DnType,
-    ExtendedKeyUsagePurpose, KeyIdMethod, KeyUsagePurpose, RsaKeySize, SerialNumber,
-    SignatureAlgorithm,
+    CertifiedKey, CrlDistributionPoint, CustomExtension, Date, DnType, ExtendedKeyUsagePurpose,
+    KeyIdMethod, KeyUsagePurpose, RsaKeySize, SerialNumber, SignatureAlgorithm,
 };
 use certificate_builder::{
-    IsComplete, IsUnset, SetDistinguishedName, SetNotAfter, SetNotBefore, SetSubjectAltNames, State,
+    IsComplete, IsUnset, SetNotAfter, SetNotBefore, SetSubjectAltNames, State,
 };
 
 #[derive(Debug, thiserror::Error)]
@@ -20,31 +18,40 @@ pub enum CertificateErr {
     CaCertTypeErr,
 }
 
-#[derive(Builder, Default)]
+#[derive(Debug, Builder, Default)]
 #[builder(finish_fn(vis = ""))] // internal builder
 pub struct Certificate {
     /// Optional CA to use instead of making our own.
     /// This is full CA file contents (not a path).
     /// It can be a normal PEM string, or DER bytes
+    /// flutter_rust_bridge:non_final
     #[builder(into)]
     pub ca: Option<Vec<u8>>,
     /// Signature algorithm for the CSR. If not set, defaults to PKCS_ED25519.
     /// If you select RSA, you must set `rsa_key_size` as well.
+    /// flutter_rust_bridge:non_final
     #[builder(default)]
     pub signature: SignatureAlgorithm,
     /// Certificate starting date. Use [`date_time_ymd`] to generate a date
+    /// flutter_rust_bridge:non_final
     #[builder(setters(vis = "", name = not_before_internal))]
     pub not_before: Date,
     /// Certificate ending date. Use [`date_time_ymd`] to generate a date
+    /// flutter_rust_bridge:non_final
     #[builder(setters(vis = "", name = not_after_internal))]
     pub not_after: Date,
+    /// flutter_rust_bridge:non_final
     #[builder(setters(vis = "", name = subject_alt_names_internal))]
     pub subject_alt_names: Vec<String>,
+    /// flutter_rust_bridge:non_final
     pub serial_number: Option<SerialNumber>,
-    #[builder(setters(vis = "", name = distinguished_name_internal))]
-    pub distinguished_name: DistinguishedName,
+    /// flutter_rust_bridge:non_final
+    #[builder(into)]
+    pub distinguished_name: Vec<(DnType, String)>,
+    /// flutter_rust_bridge:non_final
     #[builder(into)]
     pub key_usages: Vec<KeyUsagePurpose>,
+    /// flutter_rust_bridge:non_final
     #[builder(into)]
     pub extended_key_usages: Vec<ExtendedKeyUsagePurpose>,
     /// An optional list of certificate revocation list (CRL) distribution points as described
@@ -52,21 +59,27 @@ pub struct Certificate {
     /// an up-to-date CRL with scope including this certificate can be retrieved.
     ///
     /// [^1]: <https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.13>
+    /// flutter_rust_bridge:non_final
     #[builder(default)]
     #[builder(into)]
     pub crl_distribution_points: Vec<CrlDistributionPoint>,
+    /// flutter_rust_bridge:non_final
     #[builder(default)]
     #[builder(into)]
     pub custom_extensions: Vec<CustomExtension>,
+    /// flutter_rust_bridge:non_final
     #[builder(default)]
     /// If `true`, the ‘Authority Key Identifier’ extension will be added to the generated cert
+    /// flutter_rust_bridge:non_final
     pub use_authority_key_identifier_extension: bool,
     /// Method to generate key identifiers from public keys
     ///
     /// Defaults to a truncated SHA-256 digest. See [`KeyIdMethod`] for more information.
+    /// flutter_rust_bridge:non_final
     #[builder(default)]
     pub key_identifier_method: KeyIdMethod,
     /// The key size used for RSA key generation
+    /// flutter_rust_bridge:non_final
     #[cfg(feature = "extra_signature_algos")]
     #[builder(into)]
     pub rsa_key_size: Option<RsaKeySize>,
@@ -97,21 +110,6 @@ impl<S: State> CertificateBuilder<S> {
 
         self.subject_alt_names_internal(data)
     }
-
-    pub fn distinguished_name<V, V2>(self, values: V) -> CertificateBuilder<SetDistinguishedName<S>>
-    where
-        V: Into<Vec<(DnType, V2)>>,
-        V2: Into<DnValue>,
-        S::DistinguishedName: IsUnset,
-    {
-        let values = values.into();
-        let mut data = DistinguishedName::new();
-        for (ty, value) in values {
-            let v2 = value.into();
-            data.push(ty, v2);
-        }
-        self.distinguished_name_internal(data)
-    }
 }
 
 impl<S: IsComplete> CertificateBuilder<S> {
@@ -139,7 +137,7 @@ impl Certificate {
     }
 
     pub fn generate(self) -> Result<CertifiedKey, CertificateErr> {
-        use rcgen::{CertificateParams, KeyPair};
+        use rcgen::{CertificateParams, DistinguishedName, KeyPair};
         use rustls_pki_types::{PrivateKeyDer, PrivatePkcs8KeyDer};
 
         // CA private signing key
@@ -202,7 +200,13 @@ impl Certificate {
         cert.not_before = self.not_before.into();
         cert.not_after = self.not_after.into();
         cert.serial_number = self.serial_number.map(Into::into);
-        cert.distinguished_name = self.distinguished_name.into();
+        cert.distinguished_name = {
+            let mut dn = DistinguishedName::new();
+            for (ty, val) in self.distinguished_name {
+                dn.push(ty.into(), val);
+            }
+            dn
+        };
         cert.key_usages = self.key_usages.into_iter().map(Into::into).collect();
         cert.extended_key_usages = self
             .extended_key_usages

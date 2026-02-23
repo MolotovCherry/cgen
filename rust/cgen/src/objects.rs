@@ -7,8 +7,6 @@ pub mod custom_extension;
 #[doc(hidden)]
 pub mod date;
 #[doc(hidden)]
-pub mod distinguished_name;
-#[doc(hidden)]
 pub mod dn_type;
 #[doc(hidden)]
 pub mod extended_key_usage_purpose;
@@ -27,7 +25,6 @@ pub use certified_key::CertifiedKey;
 pub use crl_distribution_point::CrlDistributionPoint;
 pub use custom_extension::CustomExtension;
 pub use date::Date;
-pub use distinguished_name::DistinguishedName;
 pub use dn_type::DnType;
 pub use extended_key_usage_purpose::ExtendedKeyUsagePurpose;
 pub use key_id_method::KeyIdMethod;

@@ -8,7 +8,7 @@ import 'objects/certified_key.dart';
 import 'objects/crl_distribution_point.dart';
 import 'objects/custom_extension.dart';
 import 'objects/date.dart';
-import 'objects/distinguished_name.dart';
+import 'objects/dn_type.dart';
 import 'objects/extended_key_usage_purpose.dart';
 import 'objects/key_id_method.dart';
 import 'objects/key_usage_purpose.dart';
@@ -17,69 +17,93 @@ import 'objects/serial_number.dart';
 import 'objects/signature_algorithm.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
-// These functions are ignored because they have generic arguments: `distinguished_name`, `subject_alt_names`
-// These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `fmt`, `fmt`, `from`, `source`
-// These functions are ignored (category: IgnoreBecauseOwnerTyShouldIgnore): `ca`, `crl_distribution_points`, `custom_extensions`, `extended_key_usages`, `generate`, `key_identifier_method`, `key_usages`, `maybe_ca`, `maybe_crl_distribution_points`, `maybe_custom_extensions`, `maybe_key_identifier_method`, `maybe_rsa_key_size`, `maybe_serial_number`, `maybe_signature`, `maybe_use_authority_key_identifier_extension`, `not_after`, `not_before`, `rsa_key_size`, `serial_number`, `signature`, `use_authority_key_identifier_extension`
+// These functions are ignored because they have generic arguments: `subject_alt_names`
+// These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `fmt`, `fmt`, `fmt`, `from`, `source`
+// These functions are ignored (category: IgnoreBecauseOwnerTyShouldIgnore): `ca`, `crl_distribution_points`, `custom_extensions`, `distinguished_name`, `extended_key_usages`, `generate`, `key_identifier_method`, `key_usages`, `maybe_ca`, `maybe_crl_distribution_points`, `maybe_custom_extensions`, `maybe_key_identifier_method`, `maybe_rsa_key_size`, `maybe_serial_number`, `maybe_signature`, `maybe_use_authority_key_identifier_extension`, `not_after`, `not_before`, `rsa_key_size`, `serial_number`, `signature`, `use_authority_key_identifier_extension`
 
-// Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<Certificate>>
-abstract class Certificate implements RustOpaqueInterface {
-  Uint8List? get ca;
+// Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<CertificateBuilder < >>>
+abstract class CertificateBuilder implements RustOpaqueInterface {}
 
-  List<CrlDistributionPoint> get crlDistributionPoints;
+// Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<CertificateErr>>
+abstract class CertificateErr implements RustOpaqueInterface {}
 
-  List<CustomExtension> get customExtensions;
+class Certificate {
+  /// Optional CA to use instead of making our own.
+  /// This is full CA file contents (not a path).
+  /// It can be a normal PEM string, or DER bytes
+  /// flutter_rust_bridge:non_final
+  Uint8List? ca;
 
-  DistinguishedName get distinguishedName;
+  /// Signature algorithm for the CSR. If not set, defaults to PKCS_ED25519.
+  /// If you select RSA, you must set `rsa_key_size` as well.
+  /// flutter_rust_bridge:non_final
+  SignatureAlgorithm signature;
 
-  List<ExtendedKeyUsagePurpose> get extendedKeyUsages;
+  /// Certificate starting date. Use [`date_time_ymd`] to generate a date
+  /// flutter_rust_bridge:non_final
+  Date notBefore;
 
-  KeyIdMethod get keyIdentifierMethod;
+  /// Certificate ending date. Use [`date_time_ymd`] to generate a date
+  /// flutter_rust_bridge:non_final
+  Date notAfter;
 
-  List<KeyUsagePurpose> get keyUsages;
+  /// flutter_rust_bridge:non_final
+  List<String> subjectAltNames;
 
-  Date get notAfter;
+  /// flutter_rust_bridge:non_final
+  SerialNumber? serialNumber;
 
-  Date get notBefore;
+  /// flutter_rust_bridge:non_final
+  List<(DnType, String)> distinguishedName;
 
-  RsaKeySize? get rsaKeySize;
+  /// flutter_rust_bridge:non_final
+  List<KeyUsagePurpose> keyUsages;
 
-  SerialNumber? get serialNumber;
+  /// flutter_rust_bridge:non_final
+  List<ExtendedKeyUsagePurpose> extendedKeyUsages;
 
-  SignatureAlgorithm get signature;
+  /// An optional list of certificate revocation list (CRL) distribution points as described
+  /// in RFC 5280 Section 4.2.1.13[^1]. Each distribution point contains one or more URIs where
+  /// an up-to-date CRL with scope including this certificate can be retrieved.
+  ///
+  /// [^1]: <https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.13>
+  /// flutter_rust_bridge:non_final
+  List<CrlDistributionPoint> crlDistributionPoints;
 
-  List<String> get subjectAltNames;
+  /// flutter_rust_bridge:non_final
+  List<CustomExtension> customExtensions;
 
-  bool get useAuthorityKeyIdentifierExtension;
+  /// flutter_rust_bridge:non_final
+  /// If `true`, the ‘Authority Key Identifier’ extension will be added to the generated cert
+  /// flutter_rust_bridge:non_final
+  bool useAuthorityKeyIdentifierExtension;
 
-  set ca(Uint8List? ca);
+  /// Method to generate key identifiers from public keys
+  ///
+  /// Defaults to a truncated SHA-256 digest. See [`KeyIdMethod`] for more information.
+  /// flutter_rust_bridge:non_final
+  KeyIdMethod keyIdentifierMethod;
 
-  set crlDistributionPoints(List<CrlDistributionPoint> crlDistributionPoints);
+  /// The key size used for RSA key generation
+  /// flutter_rust_bridge:non_final
+  RsaKeySize? rsaKeySize;
 
-  set customExtensions(List<CustomExtension> customExtensions);
-
-  set distinguishedName(DistinguishedName distinguishedName);
-
-  set extendedKeyUsages(List<ExtendedKeyUsagePurpose> extendedKeyUsages);
-
-  set keyIdentifierMethod(KeyIdMethod keyIdentifierMethod);
-
-  set keyUsages(List<KeyUsagePurpose> keyUsages);
-
-  set notAfter(Date notAfter);
-
-  set notBefore(Date notBefore);
-
-  set rsaKeySize(RsaKeySize? rsaKeySize);
-
-  set serialNumber(SerialNumber? serialNumber);
-
-  set signature(SignatureAlgorithm signature);
-
-  set subjectAltNames(List<String> subjectAltNames);
-
-  set useAuthorityKeyIdentifierExtension(
-    bool useAuthorityKeyIdentifierExtension,
-  );
+  Certificate.raw({
+    this.ca,
+    required this.signature,
+    required this.notBefore,
+    required this.notAfter,
+    required this.subjectAltNames,
+    this.serialNumber,
+    required this.distinguishedName,
+    required this.keyUsages,
+    required this.extendedKeyUsages,
+    required this.crlDistributionPoints,
+    required this.customExtensions,
+    required this.useAuthorityKeyIdentifierExtension,
+    required this.keyIdentifierMethod,
+    this.rsaKeySize,
+  });
 
   ///Create an instance of [`Certificate`] using the builder syntax
   static Future<CertificateBuilder> builder() =>
@@ -88,14 +112,47 @@ abstract class Certificate implements RustOpaqueInterface {
   static Future<Certificate> default_() =>
       RustLib.instance.api.cgenCertificateCertificateDefault();
 
-  Future<CertifiedKey> generate();
+  Future<CertifiedKey> generate() =>
+      RustLib.instance.api.cgenCertificateCertificateGenerate(that: this);
 
   /// flutter_rust_bridge:sync
   factory Certificate() => RustLib.instance.api.cgenCertificateCertificateNew();
+
+  @override
+  int get hashCode =>
+      ca.hashCode ^
+      signature.hashCode ^
+      notBefore.hashCode ^
+      notAfter.hashCode ^
+      subjectAltNames.hashCode ^
+      serialNumber.hashCode ^
+      distinguishedName.hashCode ^
+      keyUsages.hashCode ^
+      extendedKeyUsages.hashCode ^
+      crlDistributionPoints.hashCode ^
+      customExtensions.hashCode ^
+      useAuthorityKeyIdentifierExtension.hashCode ^
+      keyIdentifierMethod.hashCode ^
+      rsaKeySize.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Certificate &&
+          runtimeType == other.runtimeType &&
+          ca == other.ca &&
+          signature == other.signature &&
+          notBefore == other.notBefore &&
+          notAfter == other.notAfter &&
+          subjectAltNames == other.subjectAltNames &&
+          serialNumber == other.serialNumber &&
+          distinguishedName == other.distinguishedName &&
+          keyUsages == other.keyUsages &&
+          extendedKeyUsages == other.extendedKeyUsages &&
+          crlDistributionPoints == other.crlDistributionPoints &&
+          customExtensions == other.customExtensions &&
+          useAuthorityKeyIdentifierExtension ==
+              other.useAuthorityKeyIdentifierExtension &&
+          keyIdentifierMethod == other.keyIdentifierMethod &&
+          rsaKeySize == other.rsaKeySize;
 }
-
-// Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<CertificateBuilder < >>>
-abstract class CertificateBuilder implements RustOpaqueInterface {}
-
-// Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<CertificateErr>>
-abstract class CertificateErr implements RustOpaqueInterface {}
