@@ -9,11 +9,16 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `clone`, `from`
 
 class Date {
-  final int year;
-  final int month;
-  final int day;
+  /// flutter_rust_bridge:non_final
+  int year;
 
-  const Date({required this.year, required this.month, required this.day});
+  /// flutter_rust_bridge:non_final
+  int month;
+
+  /// flutter_rust_bridge:non_final
+  int day;
+
+  Date({required this.year, required this.month, required this.day});
 
   @override
   int get hashCode => year.hashCode ^ month.hashCode ^ day.hashCode;

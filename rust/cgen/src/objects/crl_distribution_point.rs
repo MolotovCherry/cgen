@@ -5,6 +5,7 @@
 pub struct CrlDistributionPoint {
     /// One or more URI distribution point names, indicating a place the current CRL can
     /// be retrieved. When present, SHOULD include at least one LDAP or HTTP URI.
+    /// flutter_rust_bridge:non_final
     pub uris: Vec<String>,
 }
 

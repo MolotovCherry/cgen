@@ -14,9 +14,10 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 class CrlDistributionPoint {
   /// One or more URI distribution point names, indicating a place the current CRL can
   /// be retrieved. When present, SHOULD include at least one LDAP or HTTP URI.
-  final List<String> uris;
+  /// flutter_rust_bridge:non_final
+  List<String> uris;
 
-  const CrlDistributionPoint({required this.uris});
+  CrlDistributionPoint({required this.uris});
 
   @override
   int get hashCode => uris.hashCode;

@@ -8,8 +8,7 @@ import 'dn_type.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `assert_receiver_is_total_eq`, `clone`, `eq`, `fmt`, `from`
-// These functions are ignored (category: IgnoreBecauseExplicitAttribute): `get`, `iter`
-// These functions have error during generation (see debug logs or enable `stop_on_error: true` for more details): `push`
+// These functions are ignored (category: IgnoreBecauseExplicitAttribute): `get`, `iter`, `push`
 
 // Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<DistinguishedName>>
 abstract class DistinguishedName implements RustOpaqueInterface {
@@ -20,6 +19,19 @@ abstract class DistinguishedName implements RustOpaqueInterface {
   /// flutter_rust_bridge:sync
   factory DistinguishedName() =>
       RustLib.instance.api.cgenObjectsDistinguishedNameDistinguishedNameNew();
+
+  /// Inserts or updates an attribute that consists of type and name
+  ///
+  /// ```
+  /// # use rcgen::{DistinguishedName, DnType, DnValue};
+  /// let mut dn = DistinguishedName::new();
+  /// dn.push(DnType::OrganizationName, "Crab widgits SE");
+  /// dn.push(DnType::CommonName, DnValue::PrintableString("Master Cert".try_into().unwrap()));
+  /// assert_eq!(dn.get(&DnType::OrganizationName), Some(&DnValue::Utf8String("Crab widgits SE".to_string())));
+  /// assert_eq!(dn.get(&DnType::CommonName), Some(&DnValue::PrintableString("Master Cert".try_into().unwrap())));
+  /// ```
+  /// flutter_rust_bridge:sync
+  void pushStr({required DnType ty, required String s});
 
   /// Removes the attribute with the specified DnType
   ///

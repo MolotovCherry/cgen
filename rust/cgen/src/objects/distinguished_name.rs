@@ -66,8 +66,23 @@ impl DistinguishedName {
     /// assert_eq!(dn.get(&DnType::OrganizationName), Some(&DnValue::Utf8String("Crab widgits SE".to_string())));
     /// assert_eq!(dn.get(&DnType::CommonName), Some(&DnValue::PrintableString("Master Cert".try_into().unwrap())));
     /// ```
-    /// flutter_rust_bridge:sync
+    /// flutter_rust_bridge:ignore
     pub fn push(&mut self, ty: DnType, s: impl Into<DnValue>) {
+        self.0.push(ty.into(), s);
+    }
+
+    /// Inserts or updates an attribute that consists of type and name
+    ///
+    /// ```
+    /// # use rcgen::{DistinguishedName, DnType, DnValue};
+    /// let mut dn = DistinguishedName::new();
+    /// dn.push(DnType::OrganizationName, "Crab widgits SE");
+    /// dn.push(DnType::CommonName, DnValue::PrintableString("Master Cert".try_into().unwrap()));
+    /// assert_eq!(dn.get(&DnType::OrganizationName), Some(&DnValue::Utf8String("Crab widgits SE".to_string())));
+    /// assert_eq!(dn.get(&DnType::CommonName), Some(&DnValue::PrintableString("Master Cert".try_into().unwrap())));
+    /// ```
+    /// flutter_rust_bridge:sync
+    pub fn push_str(&mut self, ty: DnType, s: &str) {
         self.0.push(ty.into(), s);
     }
 

@@ -3,8 +3,11 @@ use time::OffsetDateTime;
 
 #[derive(Copy, Clone)]
 pub struct Date {
+    /// flutter_rust_bridge:non_final
     pub year: i32,
+    /// flutter_rust_bridge:non_final
     pub month: u8,
+    /// flutter_rust_bridge:non_final
     pub day: u8,
 }
 

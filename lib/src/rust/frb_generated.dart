@@ -78,7 +78,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => -2033509985;
+  int get rustContentHash => 1525825981;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -260,6 +260,12 @@ abstract class RustLibApi extends BaseApi {
   cgenObjectsDistinguishedNameDistinguishedNameDefault();
 
   DistinguishedName cgenObjectsDistinguishedNameDistinguishedNameNew();
+
+  void cgenObjectsDistinguishedNameDistinguishedNamePushStr({
+    required DistinguishedName that,
+    required DnType ty,
+    required String s,
+  });
 
   bool cgenObjectsDistinguishedNameDistinguishedNameRemove({
     required DistinguishedName that,
@@ -1666,6 +1672,43 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       const TaskConstMeta(debugName: "DistinguishedName_new", argNames: []);
 
   @override
+  void cgenObjectsDistinguishedNameDistinguishedNamePushStr({
+    required DistinguishedName that,
+    required DnType ty,
+    required String s,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDistinguishedName(
+            that,
+            serializer,
+          );
+          sse_encode_box_autoadd_dn_type(ty, serializer);
+          sse_encode_String(s, serializer);
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 40)!;
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: null,
+        ),
+        constMeta:
+            kCgenObjectsDistinguishedNameDistinguishedNamePushStrConstMeta,
+        argValues: [that, ty, s],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta
+  get kCgenObjectsDistinguishedNameDistinguishedNamePushStrConstMeta =>
+      const TaskConstMeta(
+        debugName: "DistinguishedName_push_str",
+        argNames: ["that", "ty", "s"],
+      );
+
+  @override
   bool cgenObjectsDistinguishedNameDistinguishedNameRemove({
     required DistinguishedName that,
     required DnType ty,
@@ -1679,7 +1722,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             serializer,
           );
           sse_encode_box_autoadd_dn_type(ty, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 40)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 41)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_bool,
@@ -1709,7 +1752,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
         callFfi: () {
           final serializer = SseSerializer(generalizedFrbRustBinding);
           sse_encode_list_prim_u_8_loose(bytes, serializer);
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 41)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 42)!;
         },
         codec: SseCodec(
           decodeSuccessData:
@@ -1739,7 +1782,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 42)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 43)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_usize,
@@ -1767,7 +1810,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 43)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 44)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_list_prim_u_8_strict,
@@ -1795,7 +1838,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 44,
+            funcId: 45,
             port: port_,
           );
         },
@@ -1822,7 +1865,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 45,
+            funcId: 46,
             port: port_,
           );
         },
@@ -1850,7 +1893,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 46,
+            funcId: 47,
             port: port_,
           );
         },
@@ -3906,6 +3949,24 @@ class DistinguishedNameImpl extends RustOpaque implements DistinguishedName {
         .api
         .rust_arc_decrement_strong_count_DistinguishedNamePtr,
   );
+
+  /// Inserts or updates an attribute that consists of type and name
+  ///
+  /// ```
+  /// # use rcgen::{DistinguishedName, DnType, DnValue};
+  /// let mut dn = DistinguishedName::new();
+  /// dn.push(DnType::OrganizationName, "Crab widgits SE");
+  /// dn.push(DnType::CommonName, DnValue::PrintableString("Master Cert".try_into().unwrap()));
+  /// assert_eq!(dn.get(&DnType::OrganizationName), Some(&DnValue::Utf8String("Crab widgits SE".to_string())));
+  /// assert_eq!(dn.get(&DnType::CommonName), Some(&DnValue::PrintableString("Master Cert".try_into().unwrap())));
+  /// ```
+  /// flutter_rust_bridge:sync
+  void pushStr({required DnType ty, required String s}) =>
+      RustLib.instance.api.cgenObjectsDistinguishedNameDistinguishedNamePushStr(
+        that: this,
+        ty: ty,
+        s: s,
+      );
 
   /// Removes the attribute with the specified DnType
   ///
