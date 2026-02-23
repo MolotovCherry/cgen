@@ -7,15 +7,19 @@ import '../../../frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 // These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `as_ref`, `assert_receiver_is_total_eq`, `clone`, `eq`, `fmt`, `fmt`, `from`, `from`, `from`, `hash`
+// These functions are ignored (category: IgnoreBecauseExplicitAttribute): `from_slice`
 
 // Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<SerialNumber>>
 abstract class SerialNumber implements RustOpaqueInterface {
-  /// Create a serial number from the given byte slice.
   /// flutter_rust_bridge:sync
-  static SerialNumber fromSlice({required List<int> bytes}) => RustLib
+  static SerialNumber fromOwned({required List<int> bytes}) => RustLib
       .instance
       .api
-      .cgenObjectsSerialNumberSerialNumberFromSlice(bytes: bytes);
+      .cgenObjectsSerialNumberSerialNumberFromOwned(bytes: bytes);
+
+  /// flutter_rust_bridge:sync
+  static SerialNumber fromU64({required BigInt num}) =>
+      RustLib.instance.api.cgenObjectsSerialNumberSerialNumberFromU64(num: num);
 
   /// Return the length of the serial number in bytes.
   /// flutter_rust_bridge:sync

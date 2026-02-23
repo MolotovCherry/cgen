@@ -78,7 +78,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => 1525825981;
+  int get rustContentHash => 330806202;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -272,8 +272,12 @@ abstract class RustLibApi extends BaseApi {
     required DnType ty,
   });
 
-  SerialNumber cgenObjectsSerialNumberSerialNumberFromSlice({
+  SerialNumber cgenObjectsSerialNumberSerialNumberFromOwned({
     required List<int> bytes,
+  });
+
+  SerialNumber cgenObjectsSerialNumberSerialNumberFromU64({
+    required BigInt num,
   });
 
   BigInt cgenObjectsSerialNumberSerialNumberLen({required SerialNumber that});
@@ -1744,7 +1748,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
-  SerialNumber cgenObjectsSerialNumberSerialNumberFromSlice({
+  SerialNumber cgenObjectsSerialNumberSerialNumberFromOwned({
     required List<int> bytes,
   }) {
     return handler.executeSync(
@@ -1759,17 +1763,46 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
               sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber,
           decodeErrorData: null,
         ),
-        constMeta: kCgenObjectsSerialNumberSerialNumberFromSliceConstMeta,
+        constMeta: kCgenObjectsSerialNumberSerialNumberFromOwnedConstMeta,
         argValues: [bytes],
         apiImpl: this,
       ),
     );
   }
 
-  TaskConstMeta get kCgenObjectsSerialNumberSerialNumberFromSliceConstMeta =>
+  TaskConstMeta get kCgenObjectsSerialNumberSerialNumberFromOwnedConstMeta =>
       const TaskConstMeta(
-        debugName: "SerialNumber_from_slice",
+        debugName: "SerialNumber_from_owned",
         argNames: ["bytes"],
+      );
+
+  @override
+  SerialNumber cgenObjectsSerialNumberSerialNumberFromU64({
+    required BigInt num,
+  }) {
+    return handler.executeSync(
+      SyncTask(
+        callFfi: () {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_u_64(num, serializer);
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 43)!;
+        },
+        codec: SseCodec(
+          decodeSuccessData:
+              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSerialNumber,
+          decodeErrorData: null,
+        ),
+        constMeta: kCgenObjectsSerialNumberSerialNumberFromU64ConstMeta,
+        argValues: [num],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCgenObjectsSerialNumberSerialNumberFromU64ConstMeta =>
+      const TaskConstMeta(
+        debugName: "SerialNumber_from_u64",
+        argNames: ["num"],
       );
 
   @override
@@ -1782,7 +1815,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 43)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 44)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_usize,
@@ -1810,7 +1843,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
             that,
             serializer,
           );
-          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 44)!;
+          return pdeCallFfi(generalizedFrbRustBinding, serializer, funcId: 45)!;
         },
         codec: SseCodec(
           decodeSuccessData: sse_decode_list_prim_u_8_strict,
@@ -1838,7 +1871,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 45,
+            funcId: 46,
             port: port_,
           );
         },
@@ -1865,7 +1898,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 46,
+            funcId: 47,
             port: port_,
           );
         },
@@ -1893,7 +1926,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 47,
+            funcId: 48,
             port: port_,
           );
         },

@@ -42,7 +42,7 @@ flutter_rust_bridge::frb_generated_boilerplate!(
     default_rust_auto_opaque = RustAutoOpaqueMoi,
 );
 pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_VERSION: &str = "2.11.1";
-pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = 1525825981;
+pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = 330806202;
 
 // Section: executor
 
@@ -1976,14 +1976,14 @@ fn wire__cgen__objects__distinguished_name__DistinguishedName_remove_impl(
         },
     )
 }
-fn wire__cgen__objects__serial_number__SerialNumber_from_slice_impl(
+fn wire__cgen__objects__serial_number__SerialNumber_from_owned_impl(
     ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
     rust_vec_len_: i32,
     data_len_: i32,
 ) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync::<flutter_rust_bridge::for_generated::SseCodec, _>(
         flutter_rust_bridge::for_generated::TaskInfo {
-            debug_name: "SerialNumber_from_slice",
+            debug_name: "SerialNumber_from_owned",
             port: None,
             mode: flutter_rust_bridge::for_generated::FfiCallMode::Sync,
         },
@@ -2001,7 +2001,39 @@ fn wire__cgen__objects__serial_number__SerialNumber_from_slice_impl(
             deserializer.end();
             transform_result_sse::<_, ()>((move || {
                 let output_ok = Result::<_, ()>::Ok(
-                    cgen::objects::serial_number::SerialNumber::from_slice(&api_bytes),
+                    cgen::objects::serial_number::SerialNumber::from_owned(api_bytes),
+                )?;
+                Ok(output_ok)
+            })())
+        },
+    )
+}
+fn wire__cgen__objects__serial_number__SerialNumber_from_u64_impl(
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync::<flutter_rust_bridge::for_generated::SseCodec, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "SerialNumber_from_u64",
+            port: None,
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Sync,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            let api_num = <u64>::sse_decode(&mut deserializer);
+            deserializer.end();
+            transform_result_sse::<_, ()>((move || {
+                let output_ok = Result::<_, ()>::Ok(
+                    cgen::objects::serial_number::SerialNumber::from_u64(api_num),
                 )?;
                 Ok(output_ok)
             })())
@@ -2799,14 +2831,14 @@ fn pde_ffi_dispatcher_primary_impl(
             rust_vec_len,
             data_len,
         ),
-        45 => wire__crate__api__init__init_app_impl(port, ptr, rust_vec_len, data_len),
-        46 => wire__cgen__objects__key_id_method__key_id_method_default_impl(
+        46 => wire__crate__api__init__init_app_impl(port, ptr, rust_vec_len, data_len),
+        47 => wire__cgen__objects__key_id_method__key_id_method_default_impl(
             port,
             ptr,
             rust_vec_len,
             data_len,
         ),
-        47 => wire__cgen__objects__signature_algorithm__signature_algorithm_default_impl(
+        48 => wire__cgen__objects__signature_algorithm__signature_algorithm_default_impl(
             port,
             ptr,
             rust_vec_len,
@@ -2862,9 +2894,10 @@ fn pde_ffi_dispatcher_sync_impl(
 39 => wire__cgen__objects__distinguished_name__DistinguishedName_new_impl(ptr, rust_vec_len, data_len),
 40 => wire__cgen__objects__distinguished_name__DistinguishedName_push_str_impl(ptr, rust_vec_len, data_len),
 41 => wire__cgen__objects__distinguished_name__DistinguishedName_remove_impl(ptr, rust_vec_len, data_len),
-42 => wire__cgen__objects__serial_number__SerialNumber_from_slice_impl(ptr, rust_vec_len, data_len),
-43 => wire__cgen__objects__serial_number__SerialNumber_len_impl(ptr, rust_vec_len, data_len),
-44 => wire__cgen__objects__serial_number__SerialNumber_to_bytes_impl(ptr, rust_vec_len, data_len),
+42 => wire__cgen__objects__serial_number__SerialNumber_from_owned_impl(ptr, rust_vec_len, data_len),
+43 => wire__cgen__objects__serial_number__SerialNumber_from_u64_impl(ptr, rust_vec_len, data_len),
+44 => wire__cgen__objects__serial_number__SerialNumber_len_impl(ptr, rust_vec_len, data_len),
+45 => wire__cgen__objects__serial_number__SerialNumber_to_bytes_impl(ptr, rust_vec_len, data_len),
                         _ => unreachable!(),
                     }
 }

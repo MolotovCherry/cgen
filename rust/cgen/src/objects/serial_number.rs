@@ -9,10 +9,20 @@ pub struct SerialNumber {
 #[allow(clippy::len_without_is_empty)]
 impl SerialNumber {
     /// Create a serial number from the given byte slice.
-    /// flutter_rust_bridge:sync
+    /// flutter_rust_bridge:ignore
     pub fn from_slice(bytes: &[u8]) -> SerialNumber {
         let inner = bytes.to_vec();
         SerialNumber { inner }
+    }
+
+    /// flutter_rust_bridge:sync
+    pub fn from_owned(bytes: Vec<u8>) -> SerialNumber {
+        Self::from(bytes)
+    }
+
+    /// flutter_rust_bridge:sync
+    pub fn from_u64(num: u64) -> SerialNumber {
+        Self::from(num)
     }
 
     /// Return the byte representation of the serial number.
