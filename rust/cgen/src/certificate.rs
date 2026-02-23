@@ -20,8 +20,7 @@ pub enum CertificateErr {
     CaCertTypeErr,
 }
 
-#[derive(Builder)]
-#[builder(start_fn = new)]
+#[derive(Builder, Default)]
 #[builder(finish_fn(vis = ""))] // internal builder
 pub struct Certificate {
     /// Optional CA to use instead of making our own.
@@ -122,6 +121,23 @@ impl<S: IsComplete> CertificateBuilder<S> {
 }
 
 impl Certificate {
+    /// flutter_rust_bridge:sync
+    pub fn new() -> Self {
+        Self {
+            not_before: Date {
+                year: 1975,
+                month: 1,
+                day: 1,
+            },
+            not_after: Date {
+                year: 4096,
+                month: 1,
+                day: 1,
+            },
+            ..Default::default()
+        }
+    }
+
     pub fn generate(self) -> Result<CertifiedKey, CertificateErr> {
         use rcgen::{CertificateParams, KeyPair};
         use rustls_pki_types::{PrivateKeyDer, PrivatePkcs8KeyDer};

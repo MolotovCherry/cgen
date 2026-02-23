@@ -1,7 +1,7 @@
 use rcgen::date_time_ymd;
 use time::OffsetDateTime;
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Default)]
 pub struct Date {
     /// flutter_rust_bridge:non_final
     pub year: i32,

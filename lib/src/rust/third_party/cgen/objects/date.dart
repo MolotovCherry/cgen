@@ -20,6 +20,9 @@ class Date {
 
   Date({required this.year, required this.month, required this.day});
 
+  static Future<Date> default_() =>
+      RustLib.instance.api.cgenObjectsDateDateDefault();
+
   @override
   int get hashCode => year.hashCode ^ month.hashCode ^ day.hashCode;
 

@@ -81,12 +81,17 @@ abstract class Certificate implements RustOpaqueInterface {
     bool useAuthorityKeyIdentifierExtension,
   );
 
+  ///Create an instance of [`Certificate`] using the builder syntax
+  static Future<CertificateBuilder> builder() =>
+      RustLib.instance.api.cgenCertificateCertificateBuilder();
+
+  static Future<Certificate> default_() =>
+      RustLib.instance.api.cgenCertificateCertificateDefault();
+
   Future<CertifiedKey> generate();
 
-  // HINT: Make it `#[frb(sync)]` to let it become the default constructor of Dart class.
-  ///Create an instance of [`Certificate`] using the builder syntax
-  static Future<CertificateBuilder> newInstance() =>
-      RustLib.instance.api.cgenCertificateCertificateNew();
+  /// flutter_rust_bridge:sync
+  factory Certificate() => RustLib.instance.api.cgenCertificateCertificateNew();
 }
 
 // Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<CertificateBuilder < >>>

@@ -42,7 +42,7 @@ flutter_rust_bridge::frb_generated_boilerplate!(
     default_rust_auto_opaque = RustAutoOpaqueMoi,
 );
 pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_VERSION: &str = "2.11.1";
-pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = 330806202;
+pub(crate) const FLUTTER_RUST_BRIDGE_CODEGEN_CONTENT_HASH: i32 = 1106547395;
 
 // Section: executor
 
@@ -1426,6 +1426,70 @@ fn wire__cgen__certificate__Certificate_auto_accessor_set_use_authority_key_iden
         },
     )
 }
+fn wire__cgen__certificate__Certificate_builder_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "Certificate_builder",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok = Result::<_, ()>::Ok(cgen::certificate::Certificate::builder())?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
+fn wire__cgen__certificate__Certificate_default_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "Certificate_default",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok = Result::<_, ()>::Ok(cgen::certificate::Certificate::default())?;
+                    Ok(output_ok)
+                })())
+            }
+        },
+    )
+}
 fn wire__cgen__certificate__Certificate_generate_impl(
     port_: flutter_rust_bridge::for_generated::MessagePort,
     ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
@@ -1460,16 +1524,15 @@ fn wire__cgen__certificate__Certificate_generate_impl(
     )
 }
 fn wire__cgen__certificate__Certificate_new_impl(
-    port_: flutter_rust_bridge::for_generated::MessagePort,
     ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
     rust_vec_len_: i32,
     data_len_: i32,
-) {
-    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+) -> flutter_rust_bridge::for_generated::WireSyncRust2DartSse {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_sync::<flutter_rust_bridge::for_generated::SseCodec, _>(
         flutter_rust_bridge::for_generated::TaskInfo {
             debug_name: "Certificate_new",
-            port: Some(port_),
-            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+            port: None,
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Sync,
         },
         move || {
             let message = unsafe {
@@ -1482,12 +1545,10 @@ fn wire__cgen__certificate__Certificate_new_impl(
             let mut deserializer =
                 flutter_rust_bridge::for_generated::SseDeserializer::new(message);
             deserializer.end();
-            move |context| {
-                transform_result_sse::<_, ()>((move || {
-                    let output_ok = Result::<_, ()>::Ok(cgen::certificate::Certificate::new())?;
-                    Ok(output_ok)
-                })())
-            }
+            transform_result_sse::<_, ()>((move || {
+                let output_ok = Result::<_, ()>::Ok(cgen::certificate::Certificate::new())?;
+                Ok(output_ok)
+            })())
         },
     )
 }
@@ -2133,6 +2194,38 @@ fn wire__cgen__objects__serial_number__SerialNumber_to_bytes_impl(
                 )?;
                 Ok(output_ok)
             })())
+        },
+    )
+}
+fn wire__cgen__objects__date__date_default_impl(
+    port_: flutter_rust_bridge::for_generated::MessagePort,
+    ptr_: flutter_rust_bridge::for_generated::PlatformGeneralizedUint8ListPtr,
+    rust_vec_len_: i32,
+    data_len_: i32,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap_normal::<flutter_rust_bridge::for_generated::SseCodec, _, _>(
+        flutter_rust_bridge::for_generated::TaskInfo {
+            debug_name: "date_default",
+            port: Some(port_),
+            mode: flutter_rust_bridge::for_generated::FfiCallMode::Normal,
+        },
+        move || {
+            let message = unsafe {
+                flutter_rust_bridge::for_generated::Dart2RustMessageSse::from_wire(
+                    ptr_,
+                    rust_vec_len_,
+                    data_len_,
+                )
+            };
+            let mut deserializer =
+                flutter_rust_bridge::for_generated::SseDeserializer::new(message);
+            deserializer.end();
+            move |context| {
+                transform_result_sse::<_, ()>((move || {
+                    let output_ok = Result::<_, ()>::Ok(cgen::objects::date::Date::default())?;
+                    Ok(output_ok)
+                })())
+            }
         },
     )
 }
@@ -2823,22 +2916,24 @@ fn pde_ffi_dispatcher_primary_impl(
 ) {
     // Codec=Pde (Serialization + dispatch), see doc to use other codecs
     match func_id {
-        29 => wire__cgen__certificate__Certificate_generate_impl(port, ptr, rust_vec_len, data_len),
-        30 => wire__cgen__certificate__Certificate_new_impl(port, ptr, rust_vec_len, data_len),
-        38 => wire__cgen__objects__distinguished_name__DistinguishedName_default_impl(
+        29 => wire__cgen__certificate__Certificate_builder_impl(port, ptr, rust_vec_len, data_len),
+        30 => wire__cgen__certificate__Certificate_default_impl(port, ptr, rust_vec_len, data_len),
+        31 => wire__cgen__certificate__Certificate_generate_impl(port, ptr, rust_vec_len, data_len),
+        40 => wire__cgen__objects__distinguished_name__DistinguishedName_default_impl(
             port,
             ptr,
             rust_vec_len,
             data_len,
         ),
-        46 => wire__crate__api__init__init_app_impl(port, ptr, rust_vec_len, data_len),
-        47 => wire__cgen__objects__key_id_method__key_id_method_default_impl(
+        48 => wire__cgen__objects__date__date_default_impl(port, ptr, rust_vec_len, data_len),
+        49 => wire__crate__api__init__init_app_impl(port, ptr, rust_vec_len, data_len),
+        50 => wire__cgen__objects__key_id_method__key_id_method_default_impl(
             port,
             ptr,
             rust_vec_len,
             data_len,
         ),
-        48 => wire__cgen__objects__signature_algorithm__signature_algorithm_default_impl(
+        51 => wire__cgen__objects__signature_algorithm__signature_algorithm_default_impl(
             port,
             ptr,
             rust_vec_len,
@@ -2884,20 +2979,21 @@ fn pde_ffi_dispatcher_sync_impl(
 26 => wire__cgen__certificate__Certificate_auto_accessor_set_signature_impl(ptr, rust_vec_len, data_len),
 27 => wire__cgen__certificate__Certificate_auto_accessor_set_subject_alt_names_impl(ptr, rust_vec_len, data_len),
 28 => wire__cgen__certificate__Certificate_auto_accessor_set_use_authority_key_identifier_extension_impl(ptr, rust_vec_len, data_len),
-31 => wire__cgen__objects__certified_key__CertifiedKey_cert_pem_impl(ptr, rust_vec_len, data_len),
-32 => wire__cgen__objects__certified_key__CertifiedKey_signing_key_pem_impl(ptr, rust_vec_len, data_len),
-33 => wire__cgen__objects__custom_extension__CustomExtension_content_impl(ptr, rust_vec_len, data_len),
-34 => wire__cgen__objects__custom_extension__CustomExtension_criticality_impl(ptr, rust_vec_len, data_len),
-35 => wire__cgen__objects__custom_extension__CustomExtension_from_oid_content_impl(ptr, rust_vec_len, data_len),
-36 => wire__cgen__objects__custom_extension__CustomExtension_new_acme_identifier_impl(ptr, rust_vec_len, data_len),
-37 => wire__cgen__objects__custom_extension__CustomExtension_set_criticality_impl(ptr, rust_vec_len, data_len),
-39 => wire__cgen__objects__distinguished_name__DistinguishedName_new_impl(ptr, rust_vec_len, data_len),
-40 => wire__cgen__objects__distinguished_name__DistinguishedName_push_str_impl(ptr, rust_vec_len, data_len),
-41 => wire__cgen__objects__distinguished_name__DistinguishedName_remove_impl(ptr, rust_vec_len, data_len),
-42 => wire__cgen__objects__serial_number__SerialNumber_from_owned_impl(ptr, rust_vec_len, data_len),
-43 => wire__cgen__objects__serial_number__SerialNumber_from_u64_impl(ptr, rust_vec_len, data_len),
-44 => wire__cgen__objects__serial_number__SerialNumber_len_impl(ptr, rust_vec_len, data_len),
-45 => wire__cgen__objects__serial_number__SerialNumber_to_bytes_impl(ptr, rust_vec_len, data_len),
+32 => wire__cgen__certificate__Certificate_new_impl(ptr, rust_vec_len, data_len),
+33 => wire__cgen__objects__certified_key__CertifiedKey_cert_pem_impl(ptr, rust_vec_len, data_len),
+34 => wire__cgen__objects__certified_key__CertifiedKey_signing_key_pem_impl(ptr, rust_vec_len, data_len),
+35 => wire__cgen__objects__custom_extension__CustomExtension_content_impl(ptr, rust_vec_len, data_len),
+36 => wire__cgen__objects__custom_extension__CustomExtension_criticality_impl(ptr, rust_vec_len, data_len),
+37 => wire__cgen__objects__custom_extension__CustomExtension_from_oid_content_impl(ptr, rust_vec_len, data_len),
+38 => wire__cgen__objects__custom_extension__CustomExtension_new_acme_identifier_impl(ptr, rust_vec_len, data_len),
+39 => wire__cgen__objects__custom_extension__CustomExtension_set_criticality_impl(ptr, rust_vec_len, data_len),
+41 => wire__cgen__objects__distinguished_name__DistinguishedName_new_impl(ptr, rust_vec_len, data_len),
+42 => wire__cgen__objects__distinguished_name__DistinguishedName_push_str_impl(ptr, rust_vec_len, data_len),
+43 => wire__cgen__objects__distinguished_name__DistinguishedName_remove_impl(ptr, rust_vec_len, data_len),
+44 => wire__cgen__objects__serial_number__SerialNumber_from_owned_impl(ptr, rust_vec_len, data_len),
+45 => wire__cgen__objects__serial_number__SerialNumber_from_u64_impl(ptr, rust_vec_len, data_len),
+46 => wire__cgen__objects__serial_number__SerialNumber_len_impl(ptr, rust_vec_len, data_len),
+47 => wire__cgen__objects__serial_number__SerialNumber_to_bytes_impl(ptr, rust_vec_len, data_len),
                         _ => unreachable!(),
                     }
 }
